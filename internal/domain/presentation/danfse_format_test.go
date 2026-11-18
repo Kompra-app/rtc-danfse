@@ -162,9 +162,10 @@ func TestMapearCStat(t *testing.T) {
 		want string
 	}{
 		{"100", "NFS-e Regular"},
-		{"101", "NFS-e Cancelada"},
-		{"102", "NFS-e Substituída"},
-		{"103", "NFS-e de Decisão Judicial ou Administrativa"},
+		{"101", "NFS-e de Substituição Gerada"},
+		{"102", "NFS-e de Decisão Judicial ou Administrativa"},
+		{"103", "NFS-e Avulsa"},
+		{"107", "NFS-e MEI"},
 		{"104", "NFS-e Emitida em Contingência"},
 		{"105", "NFS-e de Ajuste"},
 		{"", "-"},

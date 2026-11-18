@@ -293,6 +293,9 @@ type PisCofins struct {
 type TotTrib struct {
 	VTotTrib VTotTrib `xml:"vTotTrib"`
 	PTotTrib PTotTrib `xml:"pTotTrib"`
+	// PTotTribSN é o percentual aproximado total dos tributos do optante do
+	// Simples Nacional (alternativa de escolha a vTotTrib/pTotTrib/indTotTrib).
+	PTotTribSN *float64 `xml:"pTotTribSN"`
 }
 
 type VTotTrib struct {

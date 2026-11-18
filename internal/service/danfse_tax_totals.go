@@ -9,7 +9,8 @@ import (
 // montarLinhaTotaisTributos gera a linha fixa de totais aproximados de tributos
 // conforme Lei nº 12.741/2012. A prioridade é: qualquer total monetário positivo
 // => saída monetária; caso contrário, qualquer percentual positivo => saída
-// percentual; caso contrário, três hífens.
+// percentual; caso contrário, percentual do Simples Nacional (pTotTribSN)
+// positivo => saída do Simples; caso contrário, totais zerados.
 func montarLinhaTotaisTributos(nota *models.NFSe) string {
 	totaisTributos := nota.InfNFSe.DPS.InfDPS.Valores.Trib.TotTrib
 
@@ -36,6 +37,13 @@ func montarLinhaTotaisTributos(nota *models.NFSe) string {
 			presentation.FormatarPercentual(percentualFederal),
 			presentation.FormatarPercentual(percentualEstadual),
 			presentation.FormatarPercentual(percentualMunicipal),
+		)
+	}
+
+	if totaisTributos.PTotTribSN != nil && *totaisTributos.PTotTribSN > 0 {
+		return fmt.Sprintf(
+			"Totais aproximados dos Tributos cfe. Lei nº 12.741/2012: Simples Nacional: %s;",
+			presentation.FormatarPercentual(*totaisTributos.PTotTribSN),
 		)
 	}
 

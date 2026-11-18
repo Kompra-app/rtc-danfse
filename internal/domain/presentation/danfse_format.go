@@ -91,11 +91,16 @@ var (
 		3: "Intermediário",
 	}
 
+	// mapaCStat segue o Anexo I do leiaute da NFS-e nacional (anterior e
+	// v1.01): o cStat da nota descreve só a emissão. Cancelamento e
+	// substituição da nota anterior são eventos (e101101, e105102), nunca o
+	// cStat da própria nota; 101 é a nota de substituição, que é válida.
 	mapaCStat = map[string]string{
 		"100": "NFS-e Regular",
-		"101": "NFS-e Cancelada",
-		"102": "NFS-e Substituída",
-		"103": "NFS-e de Decisão Judicial ou Administrativa",
+		"101": "NFS-e de Substituição Gerada",
+		"102": "NFS-e de Decisão Judicial ou Administrativa",
+		"103": "NFS-e Avulsa",
+		"107": "NFS-e MEI",
 		"104": "NFS-e Emitida em Contingência",
 		"105": "NFS-e de Ajuste",
 	}
